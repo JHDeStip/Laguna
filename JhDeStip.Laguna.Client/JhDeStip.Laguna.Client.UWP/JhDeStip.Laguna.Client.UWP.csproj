@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{C0109157-52C6-4677-AF5B-4DD602C6BFEB}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JhDeStip.Laguna.Client.UWP</RootNamespace>
+    <AssemblyName>JhDeStip.Laguna.Client.UWP</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>
+    </PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>04F2CA91C9069F1EA9A2F8C9D1671ED60D5958A2</PackageCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewRenderers\ImageButtonRenderer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\AppNameAppList.scale-100.png" />
+    <Content Include="Assets\AppNameAppList.scale-125.png" />
+    <Content Include="Assets\AppNameAppList.scale-150.png" />
+    <Content Include="Assets\AppNameAppList.scale-200.png" />
+    <Content Include="Assets\AppNameAppList.scale-400.png" />
+    <Content Include="Assets\AppNameAppList.targetsize-16.png" />
+    <Content Include="Assets\AppNameAppList.targetsize-16_altform-unplated.png" />
+    <Content Include="Assets\AppNameAppList.targetsize-20.png" />
+    <Content Include="Assets\AppNameAppList.targetsize-24.png" />
+    <Content Include="Assets\AppNameAppList.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\AppNameAppList.targetsize-256.png" />
+    <Content Include="Assets\AppNameAppList.targetsize-256_altform-unplated.png" />
+    <Content Include="Assets\AppNameAppList.targetsize-30.png" />
+    <Content Include="Assets\AppNameAppList.targetsize-32.png" />
+    <Content Include="Assets\AppNameAppList.targetsize-36.png" />
+    <Content Include="Assets\AppNameAppList.targetsize-40.png" />
+    <Content Include="Assets\AppNameAppList.targetsize-48.png" />
+    <Content Include="Assets\AppNameAppList.targetsize-48_altform-unplated.png" />
+    <Content Include="Assets\AppNameAppList.targetsize-60.png" />
+    <Content Include="Assets\AppNameAppList.targetsize-64.png" />
+    <Content Include="Assets\AppNameAppList.targetsize-72.png" />
+    <Content Include="Assets\AppNameAppList.targetsize-80.png" />
+    <Content Include="Assets\AppNameAppList.targetsize-96.png" />
+    <Content Include="Assets\AppNameLargeTile.scale-100.png" />
+    <Content Include="Assets\AppNameLargeTile.scale-125.png" />
+    <Content Include="Assets\AppNameLargeTile.scale-150.png" />
+    <Content Include="Assets\AppNameLargeTile.scale-200.png" />
+    <Content Include="Assets\AppNameLargeTile.scale-400.png" />
+    <Content Include="Assets\AppNameMedTile.scale-100.png" />
+    <Content Include="Assets\AppNameMedTile.scale-125.png" />
+    <Content Include="Assets\AppNameMedTile.scale-150.png" />
+    <Content Include="Assets\AppNameMedTile.scale-200.png" />
+    <Content Include="Assets\AppNameMedTile.scale-400.png" />
+    <Content Include="Assets\AppNameSmallTile.scale-100.png" />
+    <Content Include="Assets\AppNameSmallTile.scale-125.png" />
+    <Content Include="Assets\AppNameSmallTile.scale-150.png" />
+    <Content Include="Assets\AppNameSmallTile.scale-200.png" />
+    <Content Include="Assets\AppNameSmallTile.scale-400.png" />
+    <Content Include="Assets\AppNameSplashScreen.scale-100.png" />
+    <Content Include="Assets\AppNameSplashScreen.scale-125.png" />
+    <Content Include="Assets\AppNameSplashScreen.scale-150.png" />
+    <Content Include="Assets\AppNameSplashScreen.scale-200.png" />
+    <Content Include="Assets\AppNameSplashScreen.scale-400.png" />
+    <Content Include="Assets\AppNameStoreLogo.scale-100.png" />
+    <Content Include="Assets\AppNameStoreLogo.scale-125.png" />
+    <Content Include="Assets\AppNameStoreLogo.scale-150.png" />
+    <Content Include="Assets\AppNameStoreLogo.scale-200.png" />
+    <Content Include="Assets\AppNameStoreLogo.scale-400.png" />
+    <Content Include="Assets\AppNameWideTile.scale-100.png" />
+    <Content Include="Assets\AppNameWideTile.scale-125.png" />
+    <Content Include="Assets\AppNameWideTile.scale-150.png" />
+    <Content Include="Assets\AppNameWideTile.scale-200.png" />
+    <Content Include="Assets\AppNameWideTile.scale-400.png" />
+    <Content Include="Assets\MenuDisabledPressed.scale-100.png" />
+    <Content Include="Assets\MenuDisabledPressed.scale-125.png" />
+    <Content Include="Assets\MenuDisabledPressed.scale-150.png" />
+    <Content Include="Assets\MenuDisabledPressed.scale-200.png" />
+    <Content Include="Assets\MenuDisabledPressed.scale-225.png" />
+    <Content Include="Assets\MenuDisabledPressed.scale-250.png" />
+    <Content Include="Assets\MenuDisabledPressed.scale-300.png" />
+    <Content Include="Assets\MenuDisabledPressed.scale-400.png" />
+    <Content Include="Assets\MenuEnabled.scale-100.png" />
+    <Content Include="Assets\MenuEnabled.scale-125.png" />
+    <Content Include="Assets\MenuEnabled.scale-150.png" />
+    <Content Include="Assets\MenuEnabled.scale-200.png" />
+    <Content Include="Assets\MenuEnabled.scale-225.png" />
+    <Content Include="Assets\MenuEnabled.scale-250.png" />
+    <Content Include="Assets\MenuEnabled.scale-300.png" />
+    <Content Include="Assets\MenuEnabled.scale-400.png" />
+    <Content Include="Assets\RefreshDisabledPressed.scale-100.png" />
+    <Content Include="Assets\RefreshDisabledPressed.scale-125.png" />
+    <Content Include="Assets\RefreshDisabledPressed.scale-150.png" />
+    <Content Include="Assets\RefreshDisabledPressed.scale-200.png" />
+    <Content Include="Assets\RefreshDisabledPressed.scale-225.png" />
+    <Content Include="Assets\RefreshDisabledPressed.scale-250.png" />
+    <Content Include="Assets\RefreshDisabledPressed.scale-300.png" />
+    <Content Include="Assets\RefreshDisabledPressed.scale-400.png" />
+    <Content Include="Assets\RefreshEnabled.scale-100.png" />
+    <Content Include="Assets\RefreshEnabled.scale-125.png" />
+    <Content Include="Assets\RefreshEnabled.scale-150.png" />
+    <Content Include="Assets\RefreshEnabled.scale-200.png" />
+    <Content Include="Assets\RefreshEnabled.scale-225.png" />
+    <Content Include="Assets\RefreshEnabled.scale-250.png" />
+    <Content Include="Assets\RefreshEnabled.scale-300.png" />
+    <Content Include="Assets\RefreshEnabled.scale-400.png" />
+    <Content Include="Assets\SearchDisabledPressed.scale-100.png" />
+    <Content Include="Assets\SearchDisabledPressed.scale-125.png" />
+    <Content Include="Assets\SearchDisabledPressed.scale-150.png" />
+    <Content Include="Assets\SearchDisabledPressed.scale-200.png" />
+    <Content Include="Assets\SearchDisabledPressed.scale-225.png" />
+    <Content Include="Assets\SearchDisabledPressed.scale-250.png" />
+    <Content Include="Assets\SearchDisabledPressed.scale-300.png" />
+    <Content Include="Assets\SearchDisabledPressed.scale-400.png" />
+    <Content Include="Assets\SearchEnabled.scale-100.png" />
+    <Content Include="Assets\SearchEnabled.scale-125.png" />
+    <Content Include="Assets\SearchEnabled.scale-150.png" />
+    <Content Include="Assets\SearchEnabled.scale-200.png" />
+    <Content Include="Assets\SearchEnabled.scale-225.png" />
+    <Content Include="Assets\SearchEnabled.scale-250.png" />
+    <Content Include="Assets\SearchEnabled.scale-300.png" />
+    <Content Include="Assets\SearchEnabled.scale-400.png" />
+    <Content Include="Properties\Default.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JhDeStip.Laguna.Client\JhDeStip.Laguna.Client.csproj">
+      <Name>JhDeStip.Laguna.Client</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsMobile, Version=10.0.10240.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
+  <Identity Name="Laguna" Publisher="CN=&quot;CN=JH De Stip, O=JH De Stip, L=Ham, S=Limburg, C=BE&quot;" Version="1.0.0.0" />
+  <mp:PhoneIdentity PhoneProductId="f736c883-f105-4d30-a719-4bf328872f5e" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>Laguna</DisplayName>
+    <PublisherDisplayName>JH De Stip</PublisherDisplayName>
+    <Logo>Assets\AppNameStoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Laguna">
+      <uap:VisualElements DisplayName="Laguna Preview 4" Square150x150Logo="Assets\AppNameMedTile.png" Square44x44Logo="Assets\AppNameAppList.png" Description="Xamarin UWP application for JhDeStip.Laguna." BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\AppNameWideTile.png" ShortName="Laguna" Square310x310Logo="Assets\AppNameLargeTile.png" Square71x71Logo="Assets\AppNameSmallTile.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+            <uap:ShowOn Tile="wide310x150Logo" />
+            <uap:ShowOn Tile="square310x310Logo" />
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="Assets\AppNameSplashScreen.png" BackgroundColor="#FFFFFF" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>
