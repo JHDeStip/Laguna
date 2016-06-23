@@ -35,9 +35,8 @@ namespace JhDeStip.Laguna.Domain
         /// <returns>Whether the object is the same as this one.</returns>
         public override bool Equals(object other)
         {
-            var checkObj = other as PlayableItemInfo;
             // PlayableItemInfo instances are considered equal if their ItemId is the same
-            return checkObj != null && ItemId == checkObj.ItemId;
+            return base.Equals(other) && ItemId == checkObj.ItemId;
         }
     }
 }
