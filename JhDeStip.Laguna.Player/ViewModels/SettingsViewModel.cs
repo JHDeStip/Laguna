@@ -119,9 +119,10 @@ namespace JhDeStip.Laguna.Player.ViewModels
 
         #endregion
 
-        public SettingsViewModel(IServiceAvailabilityService serviceAvailabilityService, IDialogService dialogService)
+        public SettingsViewModel(IServiceAvailabilityService serviceAvailabilityService, IPlaylistService playlistService, IDialogService dialogService)
         {
             _serviceAvailabilityService = serviceAvailabilityService;
+            _playlistService = playlistService;
             _dialogService = dialogService;
 
             CreateCommands();
