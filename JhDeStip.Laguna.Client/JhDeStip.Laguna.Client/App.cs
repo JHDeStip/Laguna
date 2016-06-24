@@ -25,9 +25,6 @@ namespace JhDeStip.Laguna.Client
 
         public App()
         {
-            // Init behaviors
-            Corcav.Behaviors.Infrastructure.Init();
-
             // Gets the root page of the app and sets it as navigation in the navigation service.
             var mainPage = GetMainPage();
             var navServ = Locator.INavigationService;

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:b="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
+             xmlns:b="clr-namespace:Behaviors;assembly=Behaviors"
              x:Class="JhDeStip.Laguna.Client.Views.QueuePage"
              xmlns:c="clr-namespace:JhDeStip.Laguna.Client.Converters"
              xmlns:customControls="clr-namespace:JhDeStip.Laguna.Client.CustomControls"
@@ -14,12 +14,16 @@
     </ResourceDictionary>
   </ContentPage.Resources>
 
-  <b:Interaction.Behaviors>
-    <b:BehaviorCollection>
-      <b:EventToCommand EventName="Appearing" Command="{Binding AppearingCommand}" />
-    </b:BehaviorCollection>
-  </b:Interaction.Behaviors>
+  <ContentPage.Behaviors>
+    <b:EventHandlerBehavior EventName="Appearing">
+      <b:InvokeCommandAction Command="{Binding AppearingCommand}" />
+    </b:EventHandlerBehavior>
+  </ContentPage.Behaviors>
 
+  <b:EventHandlerBehavior EventName="Appearing">
+    <b:InvokeCommandAction Command="{Binding AppearingCommand}" />
+  </b:EventHandlerBehavior>
+  
   <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="0">
       <StackLayout BackgroundColor="#E73029" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0">
         <customControls:ImageButton HorizontalOptions="StartAndExpand" DefaultImage="MenuEnabled" PressedImage="MenuDisabledPressed" DisabledImage="MenuDisabledPressed" Command="{Binding ToAboutPageCommand}" Margin="0" IsEnabled="{Binding ControlsEnabled}" />      
@@ -57,11 +61,13 @@
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
-      <b:Interaction.Behaviors>
-        <b:BehaviorCollection>
-          <b:EventToCommand EventName="ItemSelected" Command="{Binding ListItemSelectedCommand}" />
-        </b:BehaviorCollection>
-      </b:Interaction.Behaviors>
+      
+      <ListView.Behaviors>
+        <b:EventHandlerBehavior EventName="ItemSelected">
+          <b:InvokeCommandAction Command="{Binding ListItemSelectedCommand}" />
+        </b:EventHandlerBehavior>
+      </ListView.Behaviors>
+    
     </ListView>
 
   </StackLayout>

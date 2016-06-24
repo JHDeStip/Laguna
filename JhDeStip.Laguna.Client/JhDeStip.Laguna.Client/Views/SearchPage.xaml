@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:c="clr-namespace:JhDeStip.Laguna.Client.Converters"
-             xmlns:b="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
+             xmlns:b="clr-namespace:Behaviors;assembly=Behaviors"
              xmlns:local="clr-namespace:JhDeStip.Laguna.Client" 
              xmlns:customControls="clr-namespace:JhDeStip.Laguna.Client.CustomControls"
              x:Class="JhDeStip.Laguna.Client.Views.SearchPage"
@@ -19,11 +19,11 @@
     
     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="#E73029" Spacing="0">
       <Entry x:Name="searchQueryEntry" Placeholder="Zoekterm" TextColor="Black" HorizontalOptions="FillAndExpand" IsEnabled="{Binding ControlsEnabled}" Margin="2">
-        <b:Interaction.Behaviors>
-          <b:BehaviorCollection>
-            <b:EventToCommand EventName="Completed" Command="{Binding SearchCommand}" CommandParameter="{Binding Source={x:Reference searchQueryEntry}, Path=Text}"/>
-          </b:BehaviorCollection>
-        </b:Interaction.Behaviors>
+        <Entry.Behaviors>
+          <b:EventHandlerBehavior EventName="Completed">
+            <b:InvokeCommandAction Command="{Binding SearchCommand}" CommandParameter="{Binding Source={x:Reference searchQueryEntry}, Path=Text}" />
+          </b:EventHandlerBehavior>
+        </Entry.Behaviors>
         
         <Entry.Triggers>
           <Trigger TargetType="Entry" Property="IsEnabled" Value="True">
@@ -55,11 +55,13 @@
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
-      <b:Interaction.Behaviors>
-        <b:BehaviorCollection>
-          <b:EventToCommand EventName="ItemTapped" Command="{Binding ItemTappedCommand}" CommandParameter="{Binding SelectedItem}" />
-        </b:BehaviorCollection>
-      </b:Interaction.Behaviors>
+      
+      <ListView.Behaviors>
+        <b:EventHandlerBehavior EventName="ItemTapped">
+          <b:InvokeCommandAction Command="{Binding ItemTapped}" CommandParameter="{Binding SelectedItem}" />
+        </b:EventHandlerBehavior>
+      </ListView.Behaviors>
+
     </ListView>
 
   </StackLayout>
