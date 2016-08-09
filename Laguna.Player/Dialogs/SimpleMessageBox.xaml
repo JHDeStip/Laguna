@@ -1,0 +1,22 @@
+﻿<Window x:Class="JhDeStip.Laguna.Player.Dialogs.SimpleMessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JhDeStip.Laguna.Player.Dialogs"
+		xmlns:res="clr-namespace:JhDeStip.Laguna.Player.Resources"
+        mc:Ignorable="d"
+		WindowStartupLocation="CenterScreen"
+        Style="{StaticResource DialogWindow}">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<Label Grid.Row="0" x:Name="Message" Style="{StaticResource NormalLabel}" Margin="5" />
+		<Button Grid.Row="1" HorizontalAlignment="Right" Margin="5" Style="{StaticResource NormalButton}" Click="Button_Click" Content="{x:Static res:UiStrings.Ok}" />
+	</Grid>
+</Window>

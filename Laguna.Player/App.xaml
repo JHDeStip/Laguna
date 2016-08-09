@@ -1,0 +1,29 @@
+﻿<Application x:Class="JhDeStip.Laguna.Player.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:JhDeStip.Laguna.Player"
+			 xmlns:c="clr-namespace:JhDeStip.Laguna.Player.Converters"
+             StartupUri="Views/MainWindow.xaml"
+			 Startup="ApplicationStartup">
+	
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+
+				<ResourceDictionary>
+					<local:ViewModelLocator x:Key="viewModelLocator" />
+					<c:DurationTimeStringConverter x:Key="durationTimeStringConverter" />
+					<c:PositionPerMilleConverter x:Key="positionPerMilleConverter" />
+					<c:ThumbnailImageSourceConverter x:Key="thumbnailImageSourceConverter" />
+				</ResourceDictionary>
+
+				<ResourceDictionary Source="/Resources/DataTemplates/DataTemplates.xaml" />
+				<ResourceDictionary Source="/Resources/Graphics/Buttons.xaml" />
+				<ResourceDictionary Source="/Resources/Graphics/Icons.xaml" />
+				<ResourceDictionary Source="/Resources/Styles/Styles.xaml" />
+
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Application.Resources>
+	
+</Application>

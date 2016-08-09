@@ -1,0 +1,22 @@
+﻿{
+    "Users": [
+        {
+            "Name": "ClientApp",
+            "ApiKey": "c26dea57-de60-4bfc-addf-13ee271ee90e",
+            "Active": true,
+            "Permissions": [
+                "Contribute"
+            ]
+        },
+        {
+            "Name": "Player",
+            "ApiKey": "275aa853-1c10-4da6-b381-c59c1c3e91b4",
+            "Active": true,
+            "Permissions": [
+                "Contribute",
+                "Consume",
+                "ManageServer"
+            ]
+        }
+    ]
+}

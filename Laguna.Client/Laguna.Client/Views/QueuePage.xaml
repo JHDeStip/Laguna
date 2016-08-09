@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:b="clr-namespace:Behaviors;assembly=Behaviors"
+             x:Class="JhDeStip.Laguna.Client.Views.QueuePage"
+             xmlns:c="clr-namespace:JhDeStip.Laguna.Client.Converters"
+             xmlns:customControls="clr-namespace:JhDeStip.Laguna.Client.CustomControls"
+             BackgroundColor="White">
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <c:DurationConverter x:Key="durationConverter" />
+      <c:ThumbnailImageSourceConverter x:Key="thumbnailImageSourceConverter" />
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <ContentPage.Behaviors>
+    <b:EventHandlerBehavior EventName="Appearing">
+      <b:InvokeCommandAction Command="{Binding AppearingCommand}" />
+    </b:EventHandlerBehavior>
+  </ContentPage.Behaviors>
+
+  <b:EventHandlerBehavior EventName="Appearing">
+    <b:InvokeCommandAction Command="{Binding AppearingCommand}" />
+  </b:EventHandlerBehavior>
+  
+  <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="0">
+      <StackLayout BackgroundColor="#E73029" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0">
+        <customControls:ImageButton HorizontalOptions="StartAndExpand" DefaultImage="MenuEnabled" PressedImage="MenuDisabledPressed" DisabledImage="MenuDisabledPressed" Command="{Binding ToAboutPageCommand}" Margin="0" IsEnabled="{Binding ControlsEnabled}" />      
+        <customControls:ImageButton DefaultImage="RefreshEnabled" PressedImage="RefreshDisabledPressed" DisabledImage="RefreshDisabledPressed" Command="{Binding RefreshCommand}" Margin="0" IsEnabled="{Binding ControlsEnabled}" />
+        <customControls:ImageButton Command="{Binding ToSearchPageCommand}" DefaultImage="SearchEnabled" PressedImage="SearchDisabledPressed" DisabledImage="SearchDisabledPressed" Margin="0" IsEnabled="{Binding ControlsEnabled}" />       
+      </StackLayout>
+    
+    <Grid HorizontalOptions="FillAndExpand" BackgroundColor="#E7DEDE" IsVisible="{Binding NowPlayingVisible}">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+    
+      <StackLayout Grid.Column="0">
+        <Label TextColor="Black" FontSize="15">Nu bezig:</Label>
+        <Label TextColor="Black" FontSize="18" Text="{Binding NowPlayingTitle}" LineBreakMode="TailTruncation" />
+      </StackLayout>
+      
+      <Image Grid.Column="1" Source="{Binding NowPlayingThumbnailUrl, Converter={StaticResource thumbnailImageSourceConverter}}" />
+    </Grid>
+
+    <Label Text="{Binding FullScreenMessage}" TextColor="Black" FontSize="Large" XAlign="Center" IsVisible="{Binding FullScreenMessageVisible}" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
+
+    <ListView VerticalOptions="FillAndExpand" IsVisible="{Binding QueueVisible}" ItemsSource="{Binding QueueItems}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefreshCommand}" RowHeight="60">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Orientation="Horizontal">
+              <Image Source="{Binding ThumbnailUrl, Converter={StaticResource thumbnailImageSourceConverter}}" HeightRequest="60" />
+              <StackLayout VerticalOptions="Center">
+                <Label Text="{Binding Title}" FontSize="18" TextColor="Black" LineBreakMode="TailTruncation" />
+                <Label Text="{Binding Duration, Converter={StaticResource durationConverter}}" FontSize="15" TextColor="Black" />
+              </StackLayout>
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+      
+      <ListView.Behaviors>
+        <b:EventHandlerBehavior EventName="ItemSelected">
+          <b:InvokeCommandAction Command="{Binding ListItemSelectedCommand}" />
+        </b:EventHandlerBehavior>
+      </ListView.Behaviors>
+    
+    </ListView>
+
+  </StackLayout>
+
+</ContentPage>

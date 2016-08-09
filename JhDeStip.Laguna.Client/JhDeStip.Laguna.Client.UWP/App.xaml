@@ -1,8 +1,0 @@
-﻿<Application
-    x:Class="JhDeStip.Laguna.Client.UWP.App"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:JhDeStip.Laguna.Client.UWP"
-    RequestedTheme="Light">
-
-</Application>

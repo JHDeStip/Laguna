@@ -1,0 +1,29 @@
+﻿{
+    "CacheTemp": {
+        "CacheDirectory": "JHDeStip\\Laguna\\Cache",
+        "TempDirectory": "JHDeStip\\Laguna\\Temp",
+        "MaxFileAge": 60
+    },
+    "Youtube": {
+        "VideoPageUrl": "http://www.youtube.com/watch"
+    },
+    "TrackDownload": {
+        "DownloadAheadAmount": 5
+    },
+    "LagunaDal": {
+        "ServerHost": "http://localhost",
+        "ServerPort": 5000,
+        "Timeout": 15,
+        "APIBasePath": "api/preview4/",
+        "TrackSearchPath": "trackSearch/",
+        "NowPlayingPath": "playlist/nowPlaying/",
+        "UserQueueItemsPath": "playlist/userQueue/items/",
+        "NextNItemsPath": "playlist/nextN/",
+        "GetNextAndSetAsNowPlayingPath": "playlist/getNextAndSetAsNowPlaying/",
+        "FallbackPlaylistItemsPath": "playlist/fallbackPlaylist/items/",
+        "SetServiceAvailablePath": "serviceAvailability/setAvailable/",
+        "SetServiceUnavailablePath": "serviceAvailability/setUnavailable/",
+        "ServiceAvailabilityPath": "serviceAvailability/",
+        "RefreshFallbackPlaylistOnServerPath": "playlist/fallbackPlaylist/refresh/"
+    }
+}

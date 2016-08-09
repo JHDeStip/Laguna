@@ -1,0 +1,237 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<!-- Playable item list item -->
+	<Style TargetType="{x:Type ListViewItem}" x:Key="playableItemStyle">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="ListViewItem">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="1" />
+						</Grid.RowDefinitions>
+						<ContentPresenter Grid.Row="0" />
+						<Border Grid.Row="1" Grid.ColumnSpan="2" BorderThickness="0.5" BorderBrush="#88898C" />
+					</Grid>
+					
+					<ControlTemplate.Triggers>
+						<!-- Disable the normal behavior of highlighting -->
+						<Trigger Property="IsMouseOver" Value="True" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- Menu radio button -->
+	<Style TargetType="{x:Type RadioButton}" x:Key="MenuRadioButton">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="RadioButton">
+					<Border>
+						<TextBlock x:Name="ButtonText" Foreground="#88898C" Padding="5" FontSize="20">
+							<ContentPresenter />
+						</TextBlock>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsChecked" Value="True">
+							<Setter TargetName="ButtonText" Property="Foreground" Value="#1C1C1F" />
+							<Setter TargetName="ButtonText" Property="Background" Value="#88898C" />
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="ButtonText" Property="Foreground" Value="#DFE0E6" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- Progress bar -->
+	<Style TargetType="{x:Type ProgressBar}" x:Key="ProgressBar">
+		<Setter Property="Background" Value="#88898C" />
+		<Setter Property="Foreground" Value="#84BD00" />
+		<Setter Property="BorderThickness" Value="0" />
+	</Style>
+	
+	<!-- Info message -->
+	<Style TargetType="{x:Type Label}" x:Key="InfoMessage">
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="HorizontalContentAlignment" Value="Center" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="FontSize" Value="30" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<TextBlock TextAlignment="Center" TextWrapping="Wrap" Foreground="#DFE0E6" Text="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}"/>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- Normal label -->
+	<Style TargetType="{x:Type Label}" x:Key="NormalLabel">
+		<Setter Property="FontSize" Value="20" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<TextBlock TextWrapping="Wrap" Foreground="#DFE0E6" Text="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}"/>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- One pixel line -->
+	<Style TargetType="{x:Type Border}" x:Key="ThinLine">
+		<Setter Property="BorderThickness" Value="0.5" />
+		<Setter Property="BorderBrush" Value="#88898C" />
+	</Style>
+
+	<!-- Content view -->
+	<Style TargetType="{x:Type UserControl}" x:Key="ContentView">
+		<Setter Property="Background" Value="#121314" />
+	</Style>
+
+	<!-- Player buttons -->
+	<Style TargetType="{x:Type Button}" x:Key="PlayButton">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<Border Padding="5,20,0,20" Background="Transparent">
+						<ContentPresenter x:Name="GraphicsPresenter" Content="{StaticResource PlayButtonDefault}" />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="GraphicsPresenter" Property="Content" Value="{StaticResource PlayButtonDisabled}" />
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="GraphicsPresenter" Property="Content" Value="{StaticResource PlayButtonHover}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style TargetType="{x:Type Button}" x:Key="PauseButton">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<Border Padding="5,20,0,20" Background="Transparent">
+						<ContentPresenter x:Name="GraphicsPresenter" Content="{StaticResource PauseButtonDefault}" />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="GraphicsPresenter" Property="Content" Value="{StaticResource PauseButtonDisabled}" />
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="GraphicsPresenter" Property="Content" Value="{StaticResource PauseButtonHover}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style TargetType="{x:Type Button}" x:Key="NextButton">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<Border Padding="0,20,5,20" Background="Transparent">
+						<ContentPresenter x:Name="GraphicsPresenter" Content="{StaticResource NextButtonDefault}" />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="GraphicsPresenter" Property="Content" Value="{StaticResource NextButtonDisabled}" />
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="GraphicsPresenter" Property="Content" Value="{StaticResource NextButtonHover}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- Refresh button with text -->
+	<Style TargetType="{x:Type Button}" x:Key="RefreshWithTextButton">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<DockPanel x:Name="StackPanel" Background="#88898C">
+						<ContentPresenter x:Name="GraphicsPresenter" Margin="5" DockPanel.Dock="Left" Content="{StaticResource RefreshButtonDefault}" Width="20" Height="20" VerticalAlignment="Center"/>
+						<TextBlock x:Name="Text" VerticalAlignment="Center" FontSize="20" Foreground="#1C1C1F" Padding="0,4,5,6" HorizontalAlignment="Center">
+								<ContentPresenter />
+						</TextBlock>
+					</DockPanel>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="StackPanel" Property="Background" Value="#323235" />
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="GraphicsPresenter" Property="Content" Value="{StaticResource RefreshButtonHover}" />
+							<Setter TargetName="Text" Property="TextBlock.Foreground" Value="#DFE0E6" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- Power button with text -->
+	<Style TargetType="{x:Type Button}" x:Key="PowerWithTextButton">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<DockPanel x:Name="StackPanel" Background="#88898C">
+						<ContentPresenter x:Name="GraphicsPresenter" Margin="5" DockPanel.Dock="Left" Content="{StaticResource PowerButtonDefault}" Width="20" Height="20" VerticalAlignment="Center"/>
+						<TextBlock x:Name="Text" VerticalAlignment="Center" FontSize="20" Foreground="#1C1C1F" Padding="0,4,5,6" HorizontalAlignment="Center">
+								<ContentPresenter />
+						</TextBlock>
+					</DockPanel>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="StackPanel" Property="Background" Value="#323235" />
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="GraphicsPresenter" Property="Content" Value="{StaticResource PowerButtonHover}" />
+							<Setter TargetName="Text" Property="TextBlock.Foreground" Value="#DFE0E6" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- Dialog window -->
+	<Style TargetType="{x:Type Window}" x:Key="DialogWindow">
+		<Setter Property="Background" Value="#121314" />
+		<Setter Property="SizeToContent" Value="WidthAndHeight" />
+		<Setter Property="MaxWidth" Value="700" />
+		<Setter Property="ResizeMode" Value="NoResize" />
+	</Style>
+	
+	<!-- Normal button -->
+	<Style TargetType="{x:Type Button}" x:Key="NormalButton">
+		<Setter Property="MinWidth" Value="95" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<Label x:Name="Label" FontSize="20" Background="#88898C" Foreground="#1C1C1F" Padding="5,0,5,3" HorizontalContentAlignment="Center">
+						<ContentPresenter />
+					</Label>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="Label" Property="Background" Value="#323235" />
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="Label" Property="TextBlock.Foreground" Value="#DFE0E6" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+</ResourceDictionary>

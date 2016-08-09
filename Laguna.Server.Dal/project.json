@@ -1,0 +1,21 @@
+{
+  "title": "Laguna.Server.Dal",
+  "copyright": "Copyright © JH De Stip 2016",
+  "description": "DAL for the Laguna server.",
+  "version": "1.0.0-*",
+  "dependencies": {
+    "Laguna.Server.Domain": "1.0.0-*",
+    "Microsoft.Extensions.Options": "1.0.0",
+    "NETStandard.Library": "1.6.0",
+    "Newtonsoft.Json": "9.0.1"
+  },
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  },
+  "buildOptions": {
+    "optimize": true,
+    "xmlDoc": true
+  }
+}
