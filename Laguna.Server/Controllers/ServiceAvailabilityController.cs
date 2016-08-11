@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using JhDeStip.Laguna.Server.Services;
 using JhDeStip.Laguna.Server.Domain;
 
@@ -10,7 +6,7 @@ using JhDeStip.Laguna.Server.Domain;
 
 namespace JhDeStip.Laguna.Server.Controllers
 {
-    [Route("api/v1.0/serviceAvailability")]
+    [Route("api/v1.0/[controller]")]
     public class ServiceAvailabilityController : Controller
     {
         private IServiceAvailabilityService _serviceAvailabilityService;
