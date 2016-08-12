@@ -1,5 +1,4 @@
 ﻿using Xamarin.Forms;
-using GalaSoft.MvvmLight.Views;
 using JhDeStip.Laguna.Client.Utility;
 using JhDeStip.Laguna.Client.Views;
 using Xamarin.Forms.Xaml;

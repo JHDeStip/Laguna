@@ -22,7 +22,6 @@ namespace JhDeStip.Laguna.Server
                 .UseStartup<Startup>()
                 .Build();
 
-
             host.Run();
         }
     }

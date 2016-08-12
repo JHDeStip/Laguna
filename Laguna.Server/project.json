@@ -6,6 +6,7 @@
     "Microsoft.NETCore.App": {
       "version": "1.0.0"
     },
+
     "Microsoft.AspNetCore.Mvc": "1.0.0",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
@@ -20,33 +21,37 @@
     "Microsoft.AspNetCore.Authentication": "1.0.0",
     "Laguna.Server.Domain": "1.0.0-*"
   },
+
   "tools": {
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.0.0-preview2-final"
   },
+
   "frameworks": {
     "netcoreapp1.0": {
       "imports": [
         "dotnet5.6",
         "portable-net45+win8"
-      ],
-      "dependencies": {
-      }
+      ]
     }
   },
+
   "runtimes": {
     "win10-x64": {}
   },
+
   "buildOptions": {
     "emitEntryPoint": true,
     "preserveCompilationContext": true,
     "xmlDoc": true,
     "optimize": true
   },
+
   "runtimeOptions": {
     "configProperties": {
       "System.GC.Server": true
     }
   },
+
   "publishOptions": {
     "include": [
       "wwwroot",
@@ -54,9 +59,11 @@
       "Areas/**/Views",
       "appsettings.json",
       "web.config",
-      "hosting.json"
+      "hosting.json",
+      "users.json"
     ]
   },
+
   "scripts": {
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
   }
