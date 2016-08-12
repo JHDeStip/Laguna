@@ -20,7 +20,6 @@ namespace JhDeStip.Laguna.Server
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddJsonFile("hosting.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
