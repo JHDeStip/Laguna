@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
 			 Style="{StaticResource ContentView}"
-			 DataContext="{Binding InfoMessageViewModel, Source={StaticResource viewModelLocator}}">
+			 DataContext="{Binding InfoMessageViewModel, Source={StaticResource serviceLocator}}">
 	
 	<Label Content="{Binding Message}" Style="{StaticResource InfoMessage}" />
 	

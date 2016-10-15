@@ -22,14 +22,14 @@ namespace JhDeStip.Laguna.Player.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class UiStrings {
+    public class UIStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal UiStrings() {
+        internal UIStrings() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace JhDeStip.Laguna.Player.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LagunaPlayer.Resources.UiStrings", typeof(UiStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("JhDeStip.Laguna.Player.Resources.UIStrings", typeof(UIStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -142,11 +142,29 @@ namespace JhDeStip.Laguna.Player.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Er zijn missende of ongeldige waarden in het configuratiebestand..
+        /// </summary>
+        public static string DialogText_MissingOrInvalidValuesInConfiguration {
+            get {
+                return ResourceManager.GetString("DialogText_MissingOrInvalidValuesInConfiguration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mislukt.
         /// </summary>
         public static string DialogTitle_Failed {
             get {
                 return ResourceManager.GetString("DialogTitle_Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ongeldig configuratiebestand.
+        /// </summary>
+        public static string DialogTitle_InvalidConfiguration {
+            get {
+                return ResourceManager.GetString("DialogTitle_InvalidConfiguration", resourceCulture);
             }
         }
         

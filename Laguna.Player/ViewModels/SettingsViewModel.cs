@@ -151,20 +151,20 @@ namespace JhDeStip.Laguna.Player.ViewModels
             {
                 if (await _serviceAvailabilityService.IsServiceAvailable())
                 {
-                    ServiceAvailabilityMessage = UiStrings.ApplicationIsAvailable;
+                    ServiceAvailabilityMessage = UIStrings.ApplicationIsAvailable;
                 }
                 else
                 {
                     ApplicationOffButtonVisibility = Visibility.Collapsed;
                     ApplicationOnButtonVisibility = Visibility.Visible;
-                    ServiceAvailabilityMessage = UiStrings.ApplicationIsNotAvailable;
+                    ServiceAvailabilityMessage = UIStrings.ApplicationIsNotAvailable;
                 }
 
                 ApplicationOnOffButtonsEnabled = true;
             }
             catch
             {
-                ServiceAvailabilityMessage = UiStrings.CannotRetrieveServiceAvailability;
+                ServiceAvailabilityMessage = UIStrings.CannotRetrieveServiceAvailability;
             }
         }
 
@@ -178,7 +178,7 @@ namespace JhDeStip.Laguna.Player.ViewModels
             }
             catch
             {
-                _dialogService.ShowErrorMessageBox(UiStrings.DialogTitle_Failed, UiStrings.DialogText_CannotRefreshFallbackPlaylistOnServer);
+                _dialogService.ShowErrorMessageBox(UIStrings.DialogTitle_Failed, UIStrings.DialogText_CannotRefreshFallbackPlaylistOnServer);
             }
 
             RefreshFallbackPlaylistButtonEnabled = true;
@@ -195,22 +195,22 @@ namespace JhDeStip.Laguna.Player.ViewModels
                     await _serviceAvailabilityService.MakeServiceAvailable();
                     ApplicationOnButtonVisibility = Visibility.Collapsed;
                     ApplicationOffButtonVisibility = Visibility.Visible;
-                    ServiceAvailabilityMessage = UiStrings.ApplicationIsAvailable;
+                    ServiceAvailabilityMessage = UIStrings.ApplicationIsAvailable;
                 }
                 else
                 {
                     await _serviceAvailabilityService.MakeServiceUnavailable();
                     ApplicationOffButtonVisibility = Visibility.Collapsed;
                     ApplicationOnButtonVisibility = Visibility.Visible;
-                    ServiceAvailabilityMessage = UiStrings.ApplicationIsNotAvailable;
+                    ServiceAvailabilityMessage = UIStrings.ApplicationIsNotAvailable;
                 }
             }
             catch
             {
                 if (serviceAvailable)
-                    _dialogService.ShowErrorMessageBox(UiStrings.DialogTitle_Failed, UiStrings.DialogText_CannotMakeServiceAvailable);
+                    _dialogService.ShowErrorMessageBox(UIStrings.DialogTitle_Failed, UIStrings.DialogText_CannotMakeServiceAvailable);
                 else
-                    _dialogService.ShowErrorMessageBox(UiStrings.DialogTitle_Failed, UiStrings.DialogText_CannotMakeServiceUnavailable);
+                    _dialogService.ShowErrorMessageBox(UIStrings.DialogTitle_Failed, UIStrings.DialogText_CannotMakeServiceUnavailable);
             }
 
             ApplicationOnOffButtonsEnabled = true;

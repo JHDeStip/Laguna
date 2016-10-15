@@ -10,10 +10,10 @@
 
 	<DockPanel>
 		<StackPanel DockPanel.Dock="Left" VerticalAlignment="Stretch" Background="#1C1C1F">
-			<RadioButton GroupName="NavigationRadioButtons" Command="{Binding NavigateCommand}" CommandParameter="NextNItemsView" IsEnabled="{Binding NavigationBarEnabled}" Style="{StaticResource MenuRadioButton}" IsChecked="True" Content="{x:Static res:UiStrings.Next20Tracks}" />
-			<RadioButton GroupName="NavigationRadioButtons" Command="{Binding NavigateCommand}" CommandParameter="FullUserQueueView" IsEnabled="{Binding NavigationBarEnabled}" Style="{StaticResource MenuRadioButton}" Content="{x:Static res:UiStrings.UserQueue}" />
-			<RadioButton GroupName="NavigationRadioButtons" Command="{Binding NavigateCommand}" CommandParameter="FallbackPlaylistView" IsEnabled="{Binding NavigationBarEnabled}" Style="{StaticResource MenuRadioButton}" Content="{x:Static res:UiStrings.FallbackPlaylist}"/>
-			<RadioButton GroupName="NavigationRadioButtons" Command="{Binding NavigateCommand}" CommandParameter="SettingsView" IsEnabled="{Binding NavigationBarEnabled}" Style="{StaticResource MenuRadioButton}" Content="{x:Static res:UiStrings.Settings}" />
+			<RadioButton GroupName="NavigationRadioButtons" Command="{Binding NavigateCommand}" CommandParameter="NextNItemsView" IsEnabled="{Binding NavigationBarEnabled}" Style="{StaticResource MenuRadioButton}" IsChecked="True" Content="{x:Static res:UIStrings.Next20Tracks}" />
+			<RadioButton GroupName="NavigationRadioButtons" Command="{Binding NavigateCommand}" CommandParameter="FullUserQueueView" IsEnabled="{Binding NavigationBarEnabled}" Style="{StaticResource MenuRadioButton}" Content="{x:Static res:UIStrings.UserQueue}" />
+			<RadioButton GroupName="NavigationRadioButtons" Command="{Binding NavigateCommand}" CommandParameter="FallbackPlaylistView" IsEnabled="{Binding NavigationBarEnabled}" Style="{StaticResource MenuRadioButton}" Content="{x:Static res:UIStrings.FallbackPlaylist}"/>
+			<RadioButton GroupName="NavigationRadioButtons" Command="{Binding NavigateCommand}" CommandParameter="SettingsView" IsEnabled="{Binding NavigationBarEnabled}" Style="{StaticResource MenuRadioButton}" Content="{x:Static res:UIStrings.Settings}" />
 		</StackPanel>
 		<Border DockPanel.Dock="Right" Style="{StaticResource ThinLine}" />
 	</DockPanel>

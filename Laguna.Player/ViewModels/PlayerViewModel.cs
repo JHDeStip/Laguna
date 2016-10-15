@@ -300,8 +300,7 @@ namespace JhDeStip.Laguna.Player.ViewModels
 
                 if (_playingItem == null)
                 {
-                    ClearPlayerInfo();
-                    Title = UiStrings.NoTracksToPlay;
+                    Title = UIStrings.NoTracksToPlay;
 
                     // We try again after the set interval
                     _retryTimer.Start();
@@ -309,10 +308,9 @@ namespace JhDeStip.Laguna.Player.ViewModels
                 else
                     await PlayNextTrack();
             }
-            catch
+            catch (Exception e)
             {
-                ClearPlayerInfo();
-                Title = UiStrings.NoTracksToPlay;
+                Title = UIStrings.NoTracksToPlay;
 
                 _retryTimer.Start();
             }
@@ -356,14 +354,15 @@ namespace JhDeStip.Laguna.Player.ViewModels
             else
             {
                 PlayPauseButtonEnabled = false;
-                NextTrackButtonEnabled = true;
                 PlayButtonVisibility = Visibility.Visible;
                 PauseButtonVisibility = Visibility.Collapsed;
                 _waitingForDownloadTrackId = _playingItem.ItemId;
-                Title = $"{Title} {UiStrings.PlayerTitle_Downloading}";
+                Title = $"{Title} {UIStrings.PlayerTitle_Downloading}";
                 ProgressBarDownloadMode = true;
                 await _trackDownloader.SetHighestPriorityTrack(_playingItem.ItemId);
             }
+
+            NextTrackButtonEnabled = true;
 
             Messenger.Default.Send(new RefreshListMessage());
 
@@ -372,7 +371,7 @@ namespace JhDeStip.Laguna.Player.ViewModels
 
         private async void OnLoaded()
         {
-            Title = UiStrings.Loading;
+            Title = UIStrings.Loading;
             await GetAndPlayNextTrack();
         }
 
@@ -426,7 +425,12 @@ namespace JhDeStip.Laguna.Player.ViewModels
         private void OnTrackFinished(object sender, FinishedStoppedPlayingEventArgs e)
         {
             // Run in the UI thread.
-            _context.Post(new SendOrPostCallback(async (state) => await GetAndPlayNextTrack()), null);
+            _context.Post(new SendOrPostCallback(async (state) =>
+            {
+                ClearPlayerInfo();
+                await GetAndPlayNextTrack();
+            }
+            ), null);
         }
 
         /// <summary>
@@ -482,6 +486,7 @@ namespace JhDeStip.Laguna.Player.ViewModels
         {
             if (_listenForButtons)
             {
+                ClearPlayerInfo();
                 _listenForButtons = false;
                 await GetAndPlayNextTrack();
                 _listenForButtons = true;
@@ -513,7 +518,7 @@ namespace JhDeStip.Laguna.Player.ViewModels
             _refreshDownloadQueueTimer.Dispose();
             _retryTimer.Stop();
 
-            Title = UiStrings.NoTracksToPlay;
+            Title = UIStrings.NoTracksToPlay;
             TrackPosition = DefaultTrackPosition;
         }
     }

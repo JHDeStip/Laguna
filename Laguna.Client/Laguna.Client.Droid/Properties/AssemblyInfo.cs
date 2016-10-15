@@ -1,7 +1,5 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using Android.App;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -10,7 +8,7 @@ using Android.App;
 [assembly: AssemblyDescription("Xamarin Android client application for Laguna.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("JH De Stip")]
-[assembly: AssemblyProduct("Client.Droid")]
+[assembly: AssemblyProduct("Laguna.Cient.Droid")]
 [assembly: AssemblyCopyright("Copyright © JH De Stip 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using JhDeStip.Laguna.Dal;
 using JhDeStip.Laguna.Player.Config;
 using JhDeStip.Laguna.Player.Exceptions;
@@ -22,7 +18,7 @@ namespace JhDeStip.Laguna.Player.Helpers
                 {
                     ServerHost = config.LagunaDal.ServerHost,
                     ServerPort = config.LagunaDal.ServerPort,
-                    Timeout = config.LagunaDal.Timeout,
+                    Timeout = new TimeSpan(0, 0, 0, Int32.Parse(config.LagunaDal.Timeout.ToString())),
                     ApiBasePath = config.LagunaDal.APIBasePath,
                     TrackSearchPath = config.LagunaDal.TrackSearchPath,
                     NowPlayingPath = config.LagunaDal.NowPlayingPath,
@@ -46,15 +42,13 @@ namespace JhDeStip.Laguna.Player.Helpers
         {
             try
             {
+                var programDataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+
                 return new CacheTempConfig
                 {
-                    CacheDirectory =
-                        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-                            config.CacheTemp.CacheDirectory),
-                    TempDirectory =
-                        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-                            config.CacheTemp.TempDirectory),
-                    MaxFileAge = new TimeSpan((int) config.CacheTemp.MaxFileAge, 0, 0, 0)
+                    CacheDirectory = Path.Combine(programDataPath, config.CacheTemp.CacheDirectory.ToString()),
+                    TempDirectory = Path.Combine(programDataPath, config.CacheTemp.TempDirectory.ToString()),
+                    MaxFileAge = new TimeSpan(Int32.Parse(config.CacheTemp.MaxFileAge.ToString()), 0, 0, 0)
                 };
             }
             catch (Exception e)
@@ -84,7 +78,7 @@ namespace JhDeStip.Laguna.Player.Helpers
             {
                 return new TrackDownloadConfig
                 {
-                    DownloadAheadAmount = config.Download.DownloadAheadAmount
+                    DownloadAheadAmount = config.TrackDownload.DownloadAheadAmount
                 };
             }
             catch (Exception e)

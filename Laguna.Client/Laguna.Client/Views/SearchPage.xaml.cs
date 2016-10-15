@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using JhDeStip.Laguna.Client.ViewModels;
+using Xamarin.Forms;
 
 namespace JhDeStip.Laguna.Client.Views
 {
@@ -12,6 +13,17 @@ namespace JhDeStip.Laguna.Client.Views
             InitializeComponent();
 
             BindingContext = App.Locator.SearchPageViewModel;
+        }
+
+        public void OnSearchResultListItemTapped(object sender, ItemTappedEventArgs e)
+        {
+
+            var viewModel = BindingContext as SearchPageViewModel;
+            if (viewModel != null)
+            {
+                ((ListView)sender).SelectedItem = null;
+                viewModel.ItemTappedCommand.Execute(e.Item);
+            }
         }
     }
 }

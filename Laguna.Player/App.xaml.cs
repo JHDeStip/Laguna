@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Configuration.Assemblies;
-
-using GalaSoft.MvvmLight.Messaging;
+﻿using System.Windows;
 
 using JhDeStip.Laguna.Player.Utility;
-using JhDeStip.Laguna.Player.ViewModels;
-using JhDeStip.Laguna.Player.Messages;
 
 namespace JhDeStip.Laguna.Player
 {
@@ -22,11 +11,13 @@ namespace JhDeStip.Laguna.Player
     {
         private void ApplicationStartup(object sender, StartupEventArgs e)
         {
-            var locator = (ViewModelLocator)Current.FindResource("viewModelLocator");
+            var locator = new ServiceLocator();
+
+            App.Current.Resources.Add("serviceLocator", locator);
 
             INavigationService navService = locator.NavigationService;
             navService.Initialize(locator.MainWindowViewModel);
-            navService.NavigateTo(ViewModelLocator.NEXT_N_ITEMS_VIEW_KEY);
+            navService.NavigateTo(ServiceLocator.NextNItemsView);
         }
     }
 }

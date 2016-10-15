@@ -11,7 +11,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="400"
 			 Style="{StaticResource ContentView}"
-			 DataContext="{Binding SettingsViewModel, Source={StaticResource viewModelLocator}}">
+			 DataContext="{Binding SettingsViewModel, Source={StaticResource serviceLocator}}">
 
 	<i:Interaction.Triggers>
 		<i:EventTrigger EventName="Loaded">
@@ -28,13 +28,13 @@
 			<ColumnDefinition Width="Auto" />
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
-		<Button Grid.Row="0" Grid.Column="0" Style="{StaticResource RefreshWithTextButton}" Margin="5" IsEnabled="{Binding RefreshFallbackPlaylistButtonEnabled}" Command="{Binding RefreshFallbackPlaylistCommand}" Content="{x:Static res:UiStrings.RefreshFallbackPlaylist}" />
-		<Button Grid.Row="1" Grid.Column="0" Style="{StaticResource PowerWithTextButton}" Margin="5,0,5,5" IsEnabled="{Binding ApplicationOnOffButtonsEnabled}" Visibility="{Binding ApplicationOnButtonVisibility}" Command="{Binding MakeServiceAvailableCommand}" Content="{x:Static res:UiStrings.TurnApplicationOn}">
+		<Button Grid.Row="0" Grid.Column="0" Style="{StaticResource RefreshWithTextButton}" Margin="5" IsEnabled="{Binding RefreshFallbackPlaylistButtonEnabled}" Command="{Binding RefreshFallbackPlaylistCommand}" Content="{x:Static res:UIStrings.RefreshFallbackPlaylist}" />
+		<Button Grid.Row="1" Grid.Column="0" Style="{StaticResource PowerWithTextButton}" Margin="5,0,5,5" IsEnabled="{Binding ApplicationOnOffButtonsEnabled}" Visibility="{Binding ApplicationOnButtonVisibility}" Command="{Binding MakeServiceAvailableCommand}" Content="{x:Static res:UIStrings.TurnApplicationOn}">
 			<Button.CommandParameter>
 				<s:Boolean>True</s:Boolean>
 			</Button.CommandParameter>
 		</Button>
-		<Button Grid.Row="1" Grid.Column="0" Style="{StaticResource PowerWithTextButton}" Margin="5,0,5,5" IsEnabled="{Binding ApplicationOnOffButtonsEnabled}" Visibility="{Binding ApplicationOffButtonVisibility}" Command="{Binding MakeServiceAvailableCommand}" Content="{x:Static res:UiStrings.TurnApplicationOff}">
+		<Button Grid.Row="1" Grid.Column="0" Style="{StaticResource PowerWithTextButton}" Margin="5,0,5,5" IsEnabled="{Binding ApplicationOnOffButtonsEnabled}" Visibility="{Binding ApplicationOffButtonVisibility}" Command="{Binding MakeServiceAvailableCommand}" Content="{x:Static res:UIStrings.TurnApplicationOff}">
 			<Button.CommandParameter>
 				<s:Boolean>False</s:Boolean>
 			</Button.CommandParameter>

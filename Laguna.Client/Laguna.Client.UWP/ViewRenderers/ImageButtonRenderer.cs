@@ -14,17 +14,17 @@ namespace JhDeStip.Laguna.Client.UWP.ViewRenderers
     public class ImageButtonRenderer : ImageRenderer
     {
         private ImageSource _defaultDrawable = null, _pressedDrawable = null, _disabledDrawable = null;
-        private ImageButton imageButton;
+        private ImageButton _imageButton;
 
         protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.Image> e)
         {
             base.OnElementChanged(e);
             if (Control != null)
             {
-                imageButton = (ImageButton)e.NewElement;
-                _defaultDrawable = new BitmapImage(new Uri($@"ms-appx:///Assets/{imageButton.DefaultImage.File}.png"));
-                _pressedDrawable = new BitmapImage(new Uri($@"ms-appx:///Assets/{imageButton.PressedImage.File}.png"));
-                _disabledDrawable = new BitmapImage(new Uri($@"ms-appx:///Assets/{imageButton.DisabledImage.File}.png"));
+                _imageButton = (ImageButton)e.NewElement;
+                _defaultDrawable = new BitmapImage(new Uri($@"ms-appx:///Assets/{_imageButton.DefaultImage.File}.png"));
+                _pressedDrawable = new BitmapImage(new Uri($@"ms-appx:///Assets/{_imageButton.PressedImage.File}.png"));
+                _disabledDrawable = new BitmapImage(new Uri($@"ms-appx:///Assets/{_imageButton.DisabledImage.File}.png"));
                 Control.Source = _defaultDrawable;
 
                 Control.PointerEntered += OnPointerEntered;
@@ -37,9 +37,9 @@ namespace JhDeStip.Laguna.Client.UWP.ViewRenderers
         {
             base.OnElementPropertyChanged(sender, e);
 
-            if (e.PropertyName == nameof(imageButton.IsEnabled))
+            if (e.PropertyName == nameof(_imageButton.IsEnabled))
             {
-                if (!Control.IsTapEnabled)
+                if (!_imageButton.IsEnabled)
                     Control.Source = _disabledDrawable;
                 else if (Control.ManipulationMode == ManipulationModes.All)
                     Control.Source = _pressedDrawable;
@@ -47,41 +47,41 @@ namespace JhDeStip.Laguna.Client.UWP.ViewRenderers
                     Control.Source = _defaultDrawable;
             }
 
-            else if (e.PropertyName == nameof(imageButton.DefaultImage))
+            else if (e.PropertyName == nameof(_imageButton.DefaultImage))
             {
-                _defaultDrawable = new BitmapImage(new Uri($@"ms-appx:///Assets/{imageButton.DefaultImage.File}.png"));
-                if (Control.IsTapEnabled && Control.ManipulationMode != ManipulationModes.All)
+                _defaultDrawable = new BitmapImage(new Uri($@"ms-appx:///Assets/{_imageButton.DefaultImage.File}.png"));
+                if (_imageButton.IsEnabled && Control.ManipulationMode != ManipulationModes.All)
                     Control.Source = _defaultDrawable;
             }
-            else if (e.PropertyName == nameof(imageButton.PressedImage))
+            else if (e.PropertyName == nameof(_imageButton.PressedImage))
             {
-                _pressedDrawable = new BitmapImage(new Uri($@"ms-appx:///Assets/{imageButton.PressedImage.File}.png"));
-                if (Control.IsTapEnabled && Control.ManipulationMode != ManipulationModes.All)
+                _pressedDrawable = new BitmapImage(new Uri($@"ms-appx:///Assets/{_imageButton.PressedImage.File}.png"));
+                if (_imageButton.IsEnabled && Control.ManipulationMode == ManipulationModes.All)
                     Control.Source = _pressedDrawable;
             }
-            else if (e.PropertyName == nameof(imageButton.DisabledImage))
+            else if (e.PropertyName == nameof(_imageButton.DisabledImage))
             {
-                _disabledDrawable = new BitmapImage(new Uri($@"ms-appx:///Assets/{imageButton.DisabledImage.File}.png"));
-                if (!Control.IsTapEnabled)
+                _disabledDrawable = new BitmapImage(new Uri($@"ms-appx:///Assets/{_imageButton.DisabledImage.File}.png"));
+                if (!_imageButton.IsEnabled)
                     Control.Source = _disabledDrawable;
             }
         }
 
         public void OnPointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            if (Control.IsTapEnabled)
+            if (_imageButton.IsEnabled)
                 Control.Source = _pressedDrawable;
         }
 
         public void OnPointerExited(object sender, PointerRoutedEventArgs e)
         {
-            if (Control.IsTapEnabled)
+            if (_imageButton.IsEnabled)
                 Control.Source = _defaultDrawable;
         }
 
         public void OnTapped(object sender, TappedRoutedEventArgs e)
         {
-            imageButton.Command.Execute(imageButton.CommandParameter);
+            _imageButton.Command.Execute(_imageButton.CommandParameter);
         }
     }
 }

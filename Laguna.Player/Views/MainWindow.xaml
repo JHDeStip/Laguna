@@ -9,8 +9,8 @@
 		xmlns:res="clr-namespace:JhDeStip.Laguna.Player.Resources"
         mc:Ignorable="d"
 		xmlns:views="clr-namespace:JhDeStip.Laguna.Player.Views"
-        Title="{x:Static res:UiStrings.MainWindowTitle}" Height="800" Width="1000"
-		DataContext="{Binding MainWindowViewModel, Source={StaticResource viewModelLocator}}">
+        Title="{x:Static res:UIStrings.MainWindowTitle}" Height="800" Width="1000"
+		DataContext="{Binding MainWindowViewModel, Source={StaticResource serviceLocator}}">
 
 	<i:Interaction.Triggers>
 		<i:EventTrigger EventName="Closing">

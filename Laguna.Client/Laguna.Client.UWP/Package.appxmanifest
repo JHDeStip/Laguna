@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Laguna">
-      <uap:VisualElements DisplayName="Laguna Preview 4" Square150x150Logo="Assets\AppNameMedTile.png" Square44x44Logo="Assets\AppNameAppList.png" Description="Xamarin UWP application for JhDeStip.Laguna." BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="Laguna Beta 1" Square150x150Logo="Assets\AppNameMedTile.png" Square44x44Logo="Assets\AppNameAppList.png" Description="Xamarin UWP application for JhDeStip.Laguna." BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\AppNameWideTile.png" ShortName="Laguna" Square310x310Logo="Assets\AppNameLargeTile.png" Square71x71Logo="Assets\AppNameSmallTile.png">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo" />

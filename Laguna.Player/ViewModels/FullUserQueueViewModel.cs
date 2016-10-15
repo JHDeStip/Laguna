@@ -161,7 +161,7 @@ namespace JhDeStip.Laguna.Player.ViewModels
 
         private async Task RefreshList()
         {
-            Message = UiStrings.Loading;
+            Message = UIStrings.Loading;
             ListVisibility = Visibility.Collapsed;
             MessageVisibility = Visibility.Visible;
             ControlsEnabled = false;
@@ -176,17 +176,17 @@ namespace JhDeStip.Laguna.Player.ViewModels
                     ListVisibility = Visibility.Visible;
                 }
                 else
-                    Message = UiStrings.NoTracksInUserQueue;
+                    Message = UIStrings.NoTracksInUserQueue;
             }
             catch (ServerCommunicationException)
             {
-                Message = UiStrings.SomethingWentWrong;
+                Message = UIStrings.SomethingWentWrong;
                 ListVisibility = Visibility.Collapsed;
                 MessageVisibility = Visibility.Visible;
             }
             catch
             {
-                Message = UiStrings.ServiceCurrentlyNotAvailable;
+                Message = UIStrings.ServiceCurrentlyNotAvailable;
                 ListVisibility = Visibility.Collapsed;
                 MessageVisibility = Visibility.Visible;
             }
@@ -204,7 +204,7 @@ namespace JhDeStip.Laguna.Player.ViewModels
             }
             catch
             {
-                _dialogService.ShowErrorMessageBox(UiStrings.DialogTitle_Failed, UiStrings.DialogText_CannotRemoveTrack);
+                _dialogService.ShowErrorMessageBox(UIStrings.DialogTitle_Failed, UIStrings.DialogText_CannotRemoveTrack);
             }
         }
 

@@ -8,22 +8,10 @@ namespace JhDeStip.Laguna.Dal
     /// </summary>
     public class DalConfig
     {
-        private string _serverHost;
         /// <summary>
         /// Host of the server that provides the REST API.
         /// </summary>
-        public string ServerHost
-        {
-            get { return _serverHost; }
-            set
-            {
-                // Set default value if no value is given
-                if (value == null)
-                    value = "http://localhost";
-
-                _serverHost = value;
-            }
-        }
+        public string ServerHost { get; set; } = String.Empty;
 
         /// <summary>
         /// Port of the server where the REST API is provided.
@@ -35,191 +23,59 @@ namespace JhDeStip.Laguna.Dal
         /// </summary>
         public TimeSpan Timeout { get; set; } = new TimeSpan(0, 0, 100);
 
-        private string _apiBasePath;
         /// <summary>
         /// Base path of the API.
         /// </summary>
-        public string ApiBasePath
-        {
-            get { return _apiBasePath; }
-            set
-            {
-                // Set default value if no value is given
-                if (value == null)
-                    value = "api/";
+        public string ApiBasePath { get; set; } = String.Empty;
 
-                _apiBasePath = value;
-            }
-        }
-
-        private string _trackSearchPath;
         /// <summary>
         /// API path for the track search call.
         /// </summary>
-        public string TrackSearchPath
-        {
-            get { return _trackSearchPath; }
-            set
-            {
-                // Set default value if no value is given
-                if (value == null)
-                    value = "trackSearch/";
+        public string TrackSearchPath { get; set; } = String.Empty;
 
-                _trackSearchPath = value;
-            }
-        }
-
-        private string _nowPlayingPath;
         /// <summary>
         /// API path for the now playing call.
         /// </summary>
-        public string NowPlayingPath
-        {
-            get { return _nowPlayingPath; }
-            set
-            {
-                // Set default value if no value is given
-                if (value == null)
-                    value = "playlist/nowPlaying/";
+        public string NowPlayingPath { get; set; } = String.Empty;
 
-                _nowPlayingPath = value;
-            }
-        }
-
-        private string _userQueueItemsPath;
         /// <summary>
         /// API path for the user queue items call.
         /// </summary>
-        public string UserQueueItemsPath
-        {
-            get { return _userQueueItemsPath; }
-            set
-            {
-                // Set default value if no value is given
-                if (value == null)
-                    value = "playlist/userQueue/items/";
+        public string UserQueueItemsPath { get; set; } = String.Empty;
 
-                _userQueueItemsPath = value;
-            }
-        }
-
-        private string _nextNItemsPath;
         /// <summary>
         /// API path for the next n items call.
         /// </summary>
-        public string NextNItemsPath
-        {
-            get { return _nextNItemsPath; }
-            set
-            {
-                // Set default value if no value is given
-                if (value == null)
-                    value = "playlist/nextN/";
+        public string NextNItemsPath { get; set; } = String.Empty;
 
-                _nextNItemsPath = value;
-            }
-        }
-
-        private string _getNextAndSetAsNowPlayingPath;
         /// <summary>
         /// API path for the get next and set as now playing call.
         /// </summary>
-        public string GetNextAndSetAsNowPlayingPath
-        {
-            get { return _getNextAndSetAsNowPlayingPath; }
-            set
-            {
-                // Set default value if no value is given
-                if (value == null)
-                    value = "playlist/getNextAndSetAsNowPlaying/";
+        public string GetNextAndSetAsNowPlayingPath { get; set; } = String.Empty;
 
-                _getNextAndSetAsNowPlayingPath = value;
-            }
-        }
-
-        private string _fallbackPlaylistItemsPath;
         /// <summary>
         /// API path for the fallback playlist items call.
         /// </summary>
-        public string FallbackPlaylistItemsPath
-        {
-            get { return _fallbackPlaylistItemsPath; }
-            set
-            {
-                // Set default value if no value is given
-                if (value == null)
-                    value = "playlist/fallbackPlaylist/items/";
+        public string FallbackPlaylistItemsPath { get; set; } = String.Empty;
 
-                _fallbackPlaylistItemsPath = value;
-            }
-        }
-
-        private string _setServiceAvailablePath;
         /// <summary>
         /// API path for the call to make the service available.
         /// </summary>
-        public string SetServiceAvailablePath
-        {
-            get { return _setServiceAvailablePath; }
-            set
-            {
-                // Set default value if no value is given
-                if (value == null)
-                    value = "serviceAvailability/setAvailable/";
+        public string SetServiceAvailablePath { get; set; } = String.Empty;
 
-                _setServiceAvailablePath = value;
-            }
-        }
-
-        private string _setServiceUnavailablePath;
         /// <summary>
         /// API path for the call to make the service unavailable.
         /// </summary>
-        public string SetServiceUnavailablePath
-        {
-            get { return _setServiceUnavailablePath; }
-            set
-            {
-                // Set default value if no value is given
-                if (value == null)
-                    value = "serviceAvailability/setUnavailable/";
+        public string SetServiceUnavailablePath { get; set; } = String.Empty;
 
-                _setServiceUnavailablePath = value;
-            }
-        }
-
-        private string _serviceAvailabilityPath;
         /// <summary>
         /// API path for the call to get the availability of the service.
         /// </summary>
-        public string ServiceAvailabilityPath
-        {
-            get { return _serviceAvailabilityPath; }
-            set
-            {
-                // Set default value if no value is given
-                if (value == null)
-                    value = "serviceAvailability/";
+        public string ServiceAvailabilityPath { get; set; } = String.Empty;
 
-                _serviceAvailabilityPath = value;
-            }
-        }
-
-        private string _refreshFallbackPlaylistOnServerPath;
         /// <summary>
         /// API path for the call to refresh the fallback playlist on the server.
         /// </summary>
-        public string RefreshFallbackPlaylistOnServerPath
-        {
-            get { return _refreshFallbackPlaylistOnServerPath; }
-            set
-            {
-                // Set default value if no value is given
-                if (value == null)
-                    value = "playlist/fallbackPlaylist/refresh/";
-
-                _refreshFallbackPlaylistOnServerPath = value;
-            }
-        }
+        public string RefreshFallbackPlaylistOnServerPath { get; set; } = String.Empty;
     }
 }

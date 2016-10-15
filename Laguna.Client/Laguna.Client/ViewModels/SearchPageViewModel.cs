@@ -25,7 +25,7 @@ namespace JhDeStip.Laguna.Client.ViewModels
         #region Commands
 
         public RelayCommand<string> SearchCommand { get; private set; }
-        public RelayCommand<PlayableItemInfo> ItemTappedCommand { get; private set; }
+        public RelayCommand<object> ItemTappedCommand { get; private set; }
 
         #endregion
 
@@ -152,7 +152,7 @@ namespace JhDeStip.Laguna.Client.ViewModels
         private void CreateCommands()
         {
             SearchCommand = new RelayCommand<string>(OnSearch);
-            ItemTappedCommand = new RelayCommand<PlayableItemInfo>(OnItemTapped);
+            ItemTappedCommand = new RelayCommand<object>(OnItemTapped);
         }
 
         private void InitPageProperties()
@@ -160,7 +160,7 @@ namespace JhDeStip.Laguna.Client.ViewModels
             ControlsEnabled = true;
             FullScreenMessageVisible = true;
             SearchResultListVisible = false;
-            FullScreenMessage = UiStrings.EnterSearchTerm;
+            FullScreenMessage = UIStrings.EnterSearchTerm;
         }
 
         public async void OnSearch(string query)
@@ -168,7 +168,7 @@ namespace JhDeStip.Laguna.Client.ViewModels
             ControlsEnabled = false;
             SearchResultListVisible = false;
             FullScreenMessageVisible = true;
-            FullScreenMessage = UiStrings.Searching;
+            FullScreenMessage = UIStrings.Searching;
 
             try
             {
@@ -179,43 +179,49 @@ namespace JhDeStip.Laguna.Client.ViewModels
                     SearchResultListVisible = true;
                 }
                 else
-                    FullScreenMessage = UiStrings.NoResults;
+                    FullScreenMessage = UIStrings.NoResults;
             }
             catch (ServerCommunicationException)
             {
-                FullScreenMessage = UiStrings.SomethingWentWrong;
+                FullScreenMessage = UIStrings.SomethingWentWrong;
             }
             catch
             {
-                FullScreenMessage = UiStrings.ServiceCurrentlyNotAvailable;
+                FullScreenMessage = UIStrings.ServiceCurrentlyNotAvailable;
             }
             ControlsEnabled = true;
         }
 
-        private async void OnItemTapped(PlayableItemInfo playableItemInfo)
+        private async void OnItemTapped(object playableItemInfoObject)
         {
+            var playableItemInfo = playableItemInfoObject as PlayableItemInfo;
+            if (playableItemInfo == null)
+            {
+                return;
+            }
+
             ControlsEnabled = false;
 
-            SelectedItem = null;
+            //SelectedItem = null;
 
-            if (await _dialogService.ShowMessage(String.Format(UiStrings.QDoYouWantToAddTrackToQueue, playableItemInfo.Title), UiStrings.QAddTrack, UiStrings.Yes, UiStrings.No, null))
+            if (await _dialogService.ShowMessage(String.Format(UIStrings.QDoYouWantToAddTrackToQueue, playableItemInfo.Title), UIStrings.QAddTrack, UIStrings.Yes, UIStrings.No, null))
             {
                 try
                 {
                     await _playlistService.AddItemToQueueAsync(playableItemInfo);
-                    await _dialogService.ShowMessage(UiStrings.YourTrackIsQueuedToPlay, UiStrings.TrackAdded);
+                    await _dialogService.ShowMessage(UIStrings.YourTrackIsQueuedToPlay, UIStrings.TrackAdded);
                 }
                 catch (TrackAlreadyInQueueException)
                 {
-                    await _dialogService.ShowMessage(UiStrings.TrackAlreadyInQueuePatience, UiStrings.TrackAlreadyInQueue);
+                    await _dialogService.ShowMessage(UIStrings.TrackAlreadyInQueuePatience, UIStrings.TrackAlreadyInQueue);
                 }
                 catch (ServerCommunicationException)
                 {
-                    await _dialogService.ShowMessage(UiStrings.SomethingWentWrongCouldNotAddTrackToQueueKissFromBartender, UiStrings.Error);
+                    await _dialogService.ShowMessage(UIStrings.SomethingWentWrongCouldNotAddTrackToQueueKissFromBartender, UIStrings.Error);
                 }
                 catch
                 {
-                    await _dialogService.ShowMessage(UiStrings.ServiceCurrentlyNotAvailable, UiStrings.ServiceNotAvailable);
+                    await _dialogService.ShowMessage(UIStrings.ServiceCurrentlyNotAvailable, UIStrings.ServiceNotAvailable);
                 }
             }
 

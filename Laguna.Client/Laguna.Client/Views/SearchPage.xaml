@@ -37,11 +37,11 @@
 
     <Label Text="{Binding FullScreenMessage}" TextColor="Black" FontSize="Large" XAlign="Center" IsVisible="{Binding FullScreenMessageVisible}" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" HorizontalOptions="Center" />
 
-    <ListView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" IsVisible="{Binding SearchResultListVisible}" ItemsSource="{Binding SearchResultItems}" IsEnabled="{Binding ControlsEnabled}" SeparatorColor="Gray" RowHeight="60" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+    <ListView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" IsVisible="{Binding SearchResultListVisible}" ItemsSource="{Binding SearchResultItems}" IsEnabled="{Binding ControlsEnabled}" SeparatorColor="Gray" RowHeight="60" ItemTapped="OnSearchResultListItemTapped">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-            <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
               <Image Source="{Binding ThumbnailUrl, Converter={StaticResource thumbnailImageSourceConverter}}" HeightRequest="60" />
               <StackLayout VerticalOptions="Center">
                 <Label Text="{Binding Title}" FontSize="18" TextColor="Black" LineBreakMode="TailTruncation" />
@@ -51,13 +51,6 @@
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
-      
-      <ListView.Behaviors>
-        <b:EventHandlerBehavior EventName="ItemTapped">
-          <b:InvokeCommandAction Command="{Binding ItemTapped}" CommandParameter="{Binding SelectedItem}" />
-        </b:EventHandlerBehavior>
-      </ListView.Behaviors>
-
     </ListView>
 
   </StackLayout>

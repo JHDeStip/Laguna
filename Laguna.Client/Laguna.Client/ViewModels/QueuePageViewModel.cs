@@ -200,12 +200,12 @@ namespace JhDeStip.Laguna.Client.ViewModels
             ToSearchPageCommand = new RelayCommand(() =>
             {
                 ControlsEnabled = false;
-                _navigationService.NavigateTo(ViewModelLocator.SEARCH_PAGE);
+                _navigationService.NavigateTo(ServiceLocator.SearchPage);
             });
             ToAboutPageCommand = new RelayCommand(() =>
             {
                 ControlsEnabled = false;
-                _navigationService.NavigateTo(ViewModelLocator.ABOUT_PAGE);
+                _navigationService.NavigateTo(ServiceLocator.AboutPage);
             });
             ListItemSelectedCommand = new RelayCommand(() => SelectedItem = null);
         }
@@ -216,7 +216,7 @@ namespace JhDeStip.Laguna.Client.ViewModels
             FullScreenMessageVisible = true;
             NowPlayingVisible = false;
             QueueVisible = false;
-            FullScreenMessage = UiStrings.Loading;
+            FullScreenMessage = UIStrings.Loading;
         }
 
         private async void Refresh()
@@ -225,7 +225,7 @@ namespace JhDeStip.Laguna.Client.ViewModels
             NowPlayingVisible = false;
             QueueVisible = false;
             FullScreenMessageVisible = true;
-            FullScreenMessage = UiStrings.Loading;
+            FullScreenMessage = UIStrings.Loading;
 
             try
             {
@@ -233,7 +233,7 @@ namespace JhDeStip.Laguna.Client.ViewModels
 
                 if (nowPlayingItem == null)
                 {
-                    NowPlayingTitle = UiStrings.NothingPlaying;
+                    NowPlayingTitle = UIStrings.NothingPlaying;
                     NowPlayingThumbnailUrl = null;
                 }
                 else
@@ -250,17 +250,17 @@ namespace JhDeStip.Laguna.Client.ViewModels
                     QueueVisible = true;
                 }
                 else
-                    FullScreenMessage = UiStrings.NothingInQueue;
+                    FullScreenMessage = UIStrings.NothingInQueue;
 
                 NowPlayingVisible = true;
             }
             catch (ServerCommunicationException)
             {
-                FullScreenMessage = UiStrings.SomethingWentWrong;
+                FullScreenMessage = UIStrings.SomethingWentWrong;
             }
             catch
             {
-                FullScreenMessage = UiStrings.ServiceCurrentlyNotAvailable;
+                FullScreenMessage = UIStrings.ServiceCurrentlyNotAvailable;
             }
 
             ControlsEnabled = true;

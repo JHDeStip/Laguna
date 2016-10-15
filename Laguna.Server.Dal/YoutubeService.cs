@@ -132,7 +132,7 @@ namespace JhDeStip.Laguna.Server.Dal
             paramList.Add(new KeyValuePair<string, string>(KeyParameterName, _config.Value.YoutubeApiKey));
             paramList.Add(new KeyValuePair<string, string>(PartParameterName, SearchPartParameterValue));
             paramList.Add(new KeyValuePair<string, string>(TypeParameterName, TypeParameterValue));
-            //paramList.Add(new KeyValuePair<string, string>(CATEGORY_ID_PARAM_NAME, _config.Value.MusicCatetoryId));
+            //paramList.Add(new KeyValuePair<string, string>(CategoryIdParameterName, _config.Value.MusicCatetoryId));
             paramList.Add(new KeyValuePair<string, string>(MaxResultsParameterName, _config.Value.MaxSearchResults));
             paramList.Add(new KeyValuePair<string, string>(SafeSearchParameterName, _config.Value.SafeSearch));
             paramList.Add(new KeyValuePair<string, string>(VideoDurationParameterName, _config.Value.VideoDuration));

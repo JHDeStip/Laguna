@@ -140,7 +140,7 @@ namespace JhDeStip.Laguna.Player.ViewModels
 
         private async Task RefreshList()
         {
-            Message = UiStrings.Loading;
+            Message = UIStrings.Loading;
             ListVisibility = Visibility.Collapsed;
             MessageVisibility = Visibility.Visible;
             ControlsEnabled = false;
@@ -155,17 +155,17 @@ namespace JhDeStip.Laguna.Player.ViewModels
                     ListVisibility = Visibility.Visible;
                 }
                 else
-                    Message = UiStrings.NoTracksToPlay;
+                    Message = UIStrings.NoTracksToPlay;
             }
             catch (ServerCommunicationException)
             {
-                Message = UiStrings.SomethingWentWrong;
+                Message = UIStrings.SomethingWentWrong;
                 ListVisibility = Visibility.Collapsed;
                 MessageVisibility = Visibility.Visible;
             }
             catch
             {
-                Message = UiStrings.ServiceCurrentlyNotAvailable;
+                Message = UIStrings.ServiceCurrentlyNotAvailable;
                 ListVisibility = Visibility.Collapsed;
                 MessageVisibility = Visibility.Visible;
             }

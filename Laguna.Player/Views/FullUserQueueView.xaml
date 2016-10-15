@@ -10,7 +10,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
 			 Style="{StaticResource ContentView}"
-			 DataContext="{Binding FullUserQueueViewModel, Source={StaticResource viewModelLocator}}">
+			 DataContext="{Binding FullUserQueueViewModel, Source={StaticResource serviceLocator}}">
 
 	<i:Interaction.Triggers>
 		<i:EventTrigger EventName="Loaded">
@@ -23,14 +23,14 @@
 
 	<DockPanel>
 		<DockPanel DockPanel.Dock="Top" Background="#1C1C1F">
-			<Button DockPanel.Dock="Top" HorizontalAlignment="Right" Command="{Binding RefreshCommand}" IsEnabled="{Binding ControlsEnabled}" Style="{StaticResource RefreshWithTextButton}" Content="{x:Static res:UiStrings.Refresh}" />
+			<Button DockPanel.Dock="Top" HorizontalAlignment="Right" Command="{Binding RefreshCommand}" IsEnabled="{Binding ControlsEnabled}" Style="{StaticResource RefreshWithTextButton}" Content="{x:Static res:UIStrings.Refresh}" />
 			<Border DockPanel.Dock="Bottom" Style="{StaticResource ThinLine}" />
 		</DockPanel>
 
 		<ListView x:Name="itemsList" ScrollViewer.CanContentScroll="False" DockPanel.Dock="Top" HorizontalAlignment="Stretch" BorderThickness="0" Padding="-1, -2, -1, -1" ItemsSource="{Binding Items}" ItemTemplate="{StaticResource playableItemDataTemplate}" ItemContainerStyle="{StaticResource playableItemStyle}" Visibility="{Binding ListVisibility}" SelectedItem="{Binding SelectedItem}">
 			<ListView.ContextMenu>
 				<ContextMenu>
-					<MenuItem Header="{x:Static res:UiStrings.Delete}"
+					<MenuItem Header="{x:Static res:UIStrings.Delete}"
 					Command="{Binding RemoveTrackCommand}"
 			CommandParameter="{Binding SelectedItem}" />
 				</ContextMenu>

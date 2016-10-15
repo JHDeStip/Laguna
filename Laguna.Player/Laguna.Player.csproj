@@ -81,8 +81,8 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="NVorbis, Version=0.8.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NVorbis.0.8.4.0\lib\NVorbis.dll</HintPath>
+    <Reference Include="NVorbis, Version=0.8.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NVorbis.0.8.5.0\lib\NVorbis.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Stannieman.AudioPlayer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -129,17 +129,22 @@
     </Compile>
     <Compile Include="Exceptions\ConfigException.cs" />
     <Compile Include="Helpers\ConfigHelper.cs" />
+    <Compile Include="Helpers\JValueHelper.cs" />
     <Compile Include="Messages\HideInfoMessageMessage.cs" />
     <Compile Include="Messages\RefreshDownloadQueueMessage.cs" />
     <Compile Include="Messages\RefreshListMessage.cs" />
     <Compile Include="Messages\ShowInfoMessageMessage.cs" />
     <Compile Include="Messages\ShutDownMessage.cs" />
-    <Compile Include="Resources\UiStrings.Designer.cs" />
+    <Compile Include="Resources\UIStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UIStrings.resx</DependentUpon>
+    </Compile>
     <Compile Include="Utility\DialogService.cs" />
     <Compile Include="Utility\IDialogService.cs" />
     <Compile Include="Utility\INavigationService.cs" />
     <Compile Include="Utility\NavigationService.cs" />
-    <Compile Include="ViewModelLocator.cs" />
+    <Compile Include="ServiceLocator.cs" />
     <Compile Include="ViewModels\FallbackPlaylistViewModel.cs" />
     <Compile Include="ViewModels\FullUserQueueViewModel.cs" />
     <Compile Include="ViewModels\INavigator.cs" />
@@ -251,10 +256,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\UiStrings.resx">
+    <EmbeddedResource Include="Resources\UIStrings.resx">
       <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UIStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Config.json" />
+    <None Include="Config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -66,6 +66,7 @@
     <Compile Include="Exceptions\TrackDownloadExceptions.cs" />
     <Compile Include="YoutubeDownloadConfig.cs" />
     <Compile Include="YoutubeTrackDownloader.cs" />
+    <Compile Include="YoutubeTrackDownloader2.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ffmpeg.exe" />

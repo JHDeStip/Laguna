@@ -118,7 +118,7 @@ namespace JhDeStip.Laguna.Player.ViewModels
 
         private void OnShowInfoMessage(ShowInfoMessageMessage showInfoMessageMessage)
         {
-            _navigationService.NavigateTo(ViewModelLocator.INFO_MESSAGE_VIEW_KEY, showInfoMessageMessage.Message);
+            _navigationService.NavigateTo(ServiceLocator.InfoMessageView, showInfoMessageMessage.Message);
             NavigationBarEnabled = false;
         }
 
@@ -141,11 +141,11 @@ namespace JhDeStip.Laguna.Player.ViewModels
 
                 Messenger.Default.Send(new ShutDownMessage());
 
-                Messenger.Default.Send(new ShowInfoMessageMessage(UiStrings.CleaningUpCacheAndTempFiles));
+                Messenger.Default.Send(new ShowInfoMessageMessage(UIStrings.CleaningUpCacheAndTempFiles));
 
                 await Task.Run(() =>
                 {
-                    var locator = (ViewModelLocator)App.Current.FindResource("viewModelLocator");
+                    var locator = (ServiceLocator)App.Current.FindResource("serviceLocator");
 
                     locator.AudioPlayer.Dispose();
                     locator.PlaylistService.Dispose();

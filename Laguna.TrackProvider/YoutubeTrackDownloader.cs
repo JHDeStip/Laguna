@@ -19,12 +19,12 @@ namespace JhDeStip.Laguna.TrackProvider
         #region Instance variables and constants
 
         // V parameter for the Youtube video page url query
-        private const string V_PARAMETER_NAME = "v";
-        private const string FFMPEG_EXE_FILE_NAME = "ffmpeg.exe";
-        private const string FFMPEG_COMMAND_ARGUMENTS = "-i \"{0}\" -vn -acodec copy -f {1} {2} -y";
+        private const string VParameterName = "v";
+        private const string FFmpegExeFileName = "ffmpeg.exe";
+        private const string FFmpegCommandArguments = "-i \"{0}\" -vn -acodec copy -f {1} {2} -y";
 
         // Youtube streams ordered from high to low quality audio
-        private static readonly int[] PREFERED_QUALITY_ORDER = { 141, 172, 22, 37, 38, 84, 43, 140, 171, 100, 82, 18, 5, 36, 17 };
+        private static readonly int[] PreferedQuelityOrder = { 141, 172, 22, 37, 38, 84, 43, 140, 171, 100, 82, 18, 5, 36, 17 };
 
         private ICacheTempManager _cacheTempManager;
         private YoutubeDownloadConfig _youtubeDownloadConfig;
@@ -159,7 +159,7 @@ namespace JhDeStip.Laguna.TrackProvider
                     try
                     {
                         // Get info about different video files for a given video
-                        IEnumerable<VideoInfo> videoInfos = DownloadUrlResolver.GetDownloadUrls(new Query(V_PARAMETER_NAME, _downloadingVideoId).QueryString);
+                        IEnumerable<VideoInfo> videoInfos = DownloadUrlResolver.GetDownloadUrls(new Query(VParameterName, _downloadingVideoId).QueryString);
 
                         // Get the best quality video
                         VideoInfo bestQualityAudioVideoInfo = GetVideoWithBestAudioQuality(videoInfos);
@@ -194,11 +194,11 @@ namespace JhDeStip.Laguna.TrackProvider
                         {
                             _downloadingVideoId = null;
                             _isDownloading = false;
+                            break;
                         }
-
                     }
                 }
-            } while (_downloadingVideoId != null);
+            } while (true);
         }
 
         /// <summary>
@@ -209,7 +209,7 @@ namespace JhDeStip.Laguna.TrackProvider
         private VideoInfo GetVideoWithBestAudioQuality(IEnumerable<VideoInfo> videoInfos)
         {
             // For every quality in best to low quality order, retun the video of this quality if found
-            foreach (int quality in PREFERED_QUALITY_ORDER)
+            foreach (int quality in PreferedQuelityOrder)
             {
                 var bestQualityVideoInfos = from videoInfo in videoInfos
                                             where videoInfo.FormatCode == quality
@@ -232,8 +232,8 @@ namespace JhDeStip.Laguna.TrackProvider
         private void DownloadAudioForVideoFile(string url, string audioFormat, string fileName)
         {
             // Create ProcessStartInfo. We use Process.Start to invoke the external FFmpeg executable.
-            ProcessStartInfo startInfo = new ProcessStartInfo(FFMPEG_EXE_FILE_NAME);
-            startInfo.Arguments = String.Format(FFMPEG_COMMAND_ARGUMENTS, url, audioFormat, Path.Combine(_cacheTempManager.TempDirectory, fileName));
+            ProcessStartInfo startInfo = new ProcessStartInfo(FFmpegExeFileName);
+            startInfo.Arguments = String.Format(FFmpegCommandArguments, url, audioFormat, Path.Combine(_cacheTempManager.TempDirectory, fileName));
             startInfo.CreateNoWindow = true;
             startInfo.UseShellExecute = false;
 
@@ -261,7 +261,7 @@ namespace JhDeStip.Laguna.TrackProvider
                         downloadSuccessful = true;
                     // Only throw an exception if the download was not intentionally killed
                     else if (!_downloadKilled)
-                        throw new TrackDownloadException($"An error occured while downloading the file using {FFMPEG_EXE_FILE_NAME}.");
+                        throw new TrackDownloadException($"An error occured while downloading the file using {FFmpegExeFileName}.");
                 }
 
                 // Move the file from the Temp to the Cache directory.
@@ -274,7 +274,7 @@ namespace JhDeStip.Laguna.TrackProvider
             }
             catch (Exception e)
             {
-                new TrackDownloadException($"An error occured while downloading the file using {FFMPEG_EXE_FILE_NAME}.", e);
+                new TrackDownloadException($"An error occured while downloading the file using {FFmpegExeFileName}.", e);
             }
         }
 

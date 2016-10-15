@@ -19,10 +19,6 @@
       <b:InvokeCommandAction Command="{Binding AppearingCommand}" />
     </b:EventHandlerBehavior>
   </ContentPage.Behaviors>
-
-  <b:EventHandlerBehavior EventName="Appearing">
-    <b:InvokeCommandAction Command="{Binding AppearingCommand}" />
-  </b:EventHandlerBehavior>
   
   <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="0">
       <StackLayout BackgroundColor="#E73029" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0">

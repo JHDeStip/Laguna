@@ -10,7 +10,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
 			 Style="{StaticResource ContentView}"
-			 DataContext="{Binding FallbackPlaylistViewModel, Source={StaticResource viewModelLocator}}">
+			 DataContext="{Binding FallbackPlaylistViewModel, Source={StaticResource serviceLocator}}">
 
 	<i:Interaction.Triggers>
 		<i:EventTrigger EventName="Loaded">
@@ -23,7 +23,7 @@
 
 	<DockPanel>
 		<DockPanel DockPanel.Dock="Top">
-			<Button DockPanel.Dock="Top" HorizontalAlignment="Right" Command="{Binding RefreshCommand}" IsEnabled="{Binding ControlsEnabled}" Style="{StaticResource RefreshWithTextButton}" Content="{x:Static res:UiStrings.Refresh}" />
+			<Button DockPanel.Dock="Top" HorizontalAlignment="Right" Command="{Binding RefreshCommand}" IsEnabled="{Binding ControlsEnabled}" Style="{StaticResource RefreshWithTextButton}" Content="{x:Static res:UIStrings.Refresh}" />
 			<Border DockPanel.Dock="Bottom" Style="{StaticResource ThinLine}" />
 		</DockPanel>
 		

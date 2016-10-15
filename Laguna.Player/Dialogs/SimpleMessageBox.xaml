@@ -17,6 +17,6 @@
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
 		<Label Grid.Row="0" x:Name="Message" Style="{StaticResource NormalLabel}" Margin="5" />
-		<Button Grid.Row="1" HorizontalAlignment="Right" Margin="5" Style="{StaticResource NormalButton}" Click="Button_Click" Content="{x:Static res:UiStrings.Ok}" />
+		<Button Grid.Row="1" HorizontalAlignment="Right" Margin="5" Style="{StaticResource NormalButton}" Click="Button_Click" Content="{x:Static res:UIStrings.Ok}" />
 	</Grid>
 </Window>

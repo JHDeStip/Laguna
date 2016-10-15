@@ -14,7 +14,7 @@
         "ServerHost": "http://localhost",
         "ServerPort": 5000,
         "Timeout": 15,
-        "APIBasePath": "api/preview4/",
+        "APIBasePath": "api/v1.0/",
         "TrackSearchPath": "trackSearch/",
         "NowPlayingPath": "playlist/nowPlaying/",
         "UserQueueItemsPath": "playlist/userQueue/items/",
